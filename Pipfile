@@ -12,6 +12,7 @@ black = "*"
 invoke = "*"
 flask-migrate = "*"
 flask-moment = "*"
+jwt = "*"
 
 [dev-packages]
 
