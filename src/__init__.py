@@ -11,3 +11,5 @@ moment = Moment(app)
 login = LoginManager(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
+from src.controllers import router
