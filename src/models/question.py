@@ -11,6 +11,7 @@ class Question(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow())
     edited_at = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    flags = db.relationship("QuestionFlag", backref="question", lazy="dynamic")
     votes = db.relationship("QuestionVote", backref="question", lazy="dynamic")
 
     def __repr__(self):

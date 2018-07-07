@@ -5,7 +5,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 
 from src.helpers.auth_helper import required_roles
 
-
+from src.models.question import Question
 
 home = Blueprint("home", __name__)
 
