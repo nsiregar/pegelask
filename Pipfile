@@ -13,8 +13,11 @@ invoke = "*"
 flask-migrate = "*"
 flask-moment = "*"
 jwt = "*"
+requests = "*"
+python-dotenv = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.6"

@@ -1,19 +1,11 @@
 import jwt
-from src import app
-from src import db
-from src import login
+from src import app, db, login
 from time import time
 from flask_login import UserMixin
-from werkzeug.security import generate_password_hash
-from werkzeug.security import check_password_hash
-from src.models.answer import Answer
-from src.models.answer import AnswerVote
-from src.models.answer import AnswerFlag
-from src.models.comment import Comment
-from src.models.comment import CommentFlag
-from src.models.question import Question
-from src.models.question import QuestionVote
-from src.models.question import QuestionFlag
+from werkzeug.security import generate_password_hash, check_password_hash
+from src.models.answer import Answer, AnswerVote, AnswerFlag
+from src.models.comment import Comment, CommentFlag
+from src.models.question import Question, QuestionVote, QuestionFlag
 
 
 class User(UserMixin, db.Model):
