@@ -1,4 +1,4 @@
-import jwt
+import jwt, enum
 from src import app, db, login
 from time import time
 from flask_login import UserMixin
@@ -8,11 +8,19 @@ from src.models.comment import Comment, CommentFlag
 from src.models.question import Question, QuestionVote, QuestionFlag
 
 
+class UserType(enum.Enum):
+    USER = "User"
+    MODERATOR = "Moderator"
+    ADMIN = "Administrator"
+
+
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), unique=True, index=True)
     email = db.Column(db.String(120), unique=True, index=True)
     password = db.Column(db.String(255))
+    account_type = db.Column(db.Enum(UserType))
+    avatar_url = db.Column(db.String(255))
     answers = db.relationship("Answer", backref="user", lazy="dynamic")
     answer_votes = db.relationship("AnswerVote", backref="user", lazy="dynamic")
     answer_flags = db.relationship("AnswerFlag", backref="user", lazy="dynamic")

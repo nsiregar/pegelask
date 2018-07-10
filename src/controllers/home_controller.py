@@ -13,5 +13,5 @@ home = Blueprint("home", __name__)
 @home.route("/", methods=["GET"])
 @home.route("/index", methods=["GET"])
 def index():
-
-    return render_template("/application/home.html", title="Home")
+    questions = Question.query.order_by(Question.created_at.desc())
+    return render_template("/application/home.html", title="Home", questions=questions)

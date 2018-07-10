@@ -1,5 +1,6 @@
 {% extends '/layout/application.html' %}
 
 {% block content %}
-
+  {{ current_user.username }}
+  {{ current_user.account_type}}
 {% endblock %}

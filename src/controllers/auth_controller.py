@@ -1,19 +1,7 @@
 from src import app, db
-
-from flask import (
-    Blueprint,
-    render_template,
-    redirect,
-    url_for,
-    flash,
-    request,
-    json,
-    session,
-)
+from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import current_user, login_required, login_user, logout_user
-
-from src.models.user import User
-
+from src.models.user import User, UserType
 from src.helpers.auth_helper import required_roles, get_access_token, get_auth_data
 
 
@@ -42,14 +30,16 @@ def github_auth():
     user = User.query.filter_by(username=auth_data["login"]).first()
     if not user:
         user = User(username=auth_data["login"], email=auth_data["email"])
+        user.account_type = UserType.USER
+        user.avatar_url = auth_data["avatar_url"]
         db.session.add(user)
         db.session.commit()
     login_user(user, True)
+    flash("Authentication succesful")
     return redirect(url_for("home.index"))
 
 
 @auth.route("/logout", methods=["GET"])
 def logout():
-    session.pop("access_token", None)
-    logout_user
+    logout_user()
     return redirect(url_for("home.index"))

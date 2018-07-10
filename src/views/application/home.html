@@ -1,5 +1,6 @@
 {% extends '/layout/application.html' %}
 
 {% block content %}
-  {{ current_user.username }}
+  {% include '/application/content.html'  %}
+  {% include '/application/sidebar.html' %}
 {% endblock %}
