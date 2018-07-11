@@ -11,6 +11,7 @@ class Answer(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow())
     edited_at = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    question_id = db.Column(db.Integer, db.ForeignKey("question.id"))
     comments = db.relationship("Comment", backref="answer", lazy="dynamic")
     flags = db.relationship("AnswerFlag", backref="answer", lazy="dynamic")
     votes = db.relationship("AnswerVote", backref="answer", lazy="dynamic")

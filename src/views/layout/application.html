@@ -18,8 +18,13 @@
     {% include '/layout/header.html' %}
 
     <div class="content">
-    {% block content %}
-    {% endblock %}
+      <div class="main">
+        {% block content %}
+        {% endblock %}
+      </div>
+      <div class="sidebar">
+        {% include '/layout/sidebar.html' %}
+      </div>
     </div>
   </div>
   {{ moment.include_jquery() }}

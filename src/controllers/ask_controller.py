@@ -10,7 +10,7 @@ ask = Blueprint("ask", __name__)
 
 @ask.route("/ask", methods=["GET", "POST"])
 @login_required
-def new_question():
+def new():
     form = QuestionForm()
     if form.validate_on_submit():
         question = Question(title=form.title.data, messages=form.messages.data)
@@ -19,12 +19,12 @@ def new_question():
         db.session.add(question)
         db.session.commit()
         return redirect(url_for("home.index"))
-    return render_template("/question/new.html", title="New Question")
+    return render_template("/question/new.html", title="New Question", form=form)
 
 
 @ask.route("/ask/<int:id>", methods=["GET", "POST"])
 @login_required
-def edit_question(id):
+def edit(id):
     question = Question.query.filter_by(id=id).first()
     form = QuestionForm(obj=question)
     if current_user.id == question.user_id:

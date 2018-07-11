@@ -1,6 +1,41 @@
 {% extends '/layout/application.html' %}
 
 {% block content %}
-  {{ current_user.username }}
-  {{ current_user.account_type}}
+  <div class="question">
+    <strong>{{ question.title }}</strong>
+    <hr>
+    {{ question.messages }}
+    <div class="detail">
+      <span>asked {{ moment(question.created_at).fromNow() }}</span>
+      <span>by {{ question.user.username }}</span>
+    </div>
+  </div>
+
+  <div class="feedback">
+    <strong>{{ question.answers.count() }} Answers</strong>
+  {% if answers %}
+    {% for answer in answers %}
+      <div class="answer">
+        {{ answer.messages }}
+        <div class="detail">
+          <span>answered {{ moment(answer.created_at).fromNow() }}</span>
+          <span>by {{ answer.user.username }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+  <hr>
+  <form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      <div class="field">{{ form.messages.label }}</div>
+      <div class="field">{{ form.messages(cols=100, rows=6) }}</div>
+      {% for error in form.messages.errors %}
+      <div class="error">{{ error }}</div>
+      {% endfor %}
+    </div>
+
+    <div class="field">{{ form.submit() }}</div>
+  </form>
+  </div>
 {% endblock %}

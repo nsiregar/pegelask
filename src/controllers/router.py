@@ -7,3 +7,4 @@ from src.controllers.ask_controller import ask
 app.register_blueprint(auth)
 app.register_blueprint(home)
 app.register_blueprint(feedback)
+app.register_blueprint(ask)

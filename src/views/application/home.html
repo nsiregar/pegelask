@@ -1,6 +1,13 @@
 {% extends '/layout/application.html' %}
 
 {% block content %}
-  {% include '/application/content.html'  %}
-  {% include '/application/sidebar.html' %}
+ <a href="{{ url_for('ask.new') }}">Ask Question</a>
+  {% for question in questions %}
+    <div class="row">
+      <span><a href="{{ url_for('feedback.view', id=question.id) }}">{{ question.title }}</a></span>
+      <div>
+        <span>{{ question.user.username }}</span>
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}
