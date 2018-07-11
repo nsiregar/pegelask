@@ -34,7 +34,9 @@ def promote_mod(username):
             user.account_type = UserType.MODERATOR
             db.session.commit()
             return print("User {} promoted as moderator".format(user.username))
-        return print("User already have the priviledges, use demote command to demote user")
+        return print(
+            "User already have the priviledges, use demote command to demote user"
+        )
     except AttributeError:
         return print("No user {}".format(username))
 
@@ -74,5 +76,6 @@ def demote(username):
 def get_status(username):
     user = User.query.filter_by(username=username).first()
     print("User {} is {}".format(username, user.account_type.value))
+
 
 app.cli.add_command(user_command)
