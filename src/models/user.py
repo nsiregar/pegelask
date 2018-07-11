@@ -21,6 +21,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(255))
     account_type = db.Column(db.Enum(UserType))
     avatar_url = db.Column(db.String(255))
+    html_url = db.Column(db.String(255))
     answers = db.relationship("Answer", backref="user", lazy="dynamic")
     answer_votes = db.relationship("AnswerVote", backref="user", lazy="dynamic")
     answer_flags = db.relationship("AnswerFlag", backref="user", lazy="dynamic")

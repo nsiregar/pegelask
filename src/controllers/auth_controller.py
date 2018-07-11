@@ -32,6 +32,7 @@ def github_auth():
         user = User(username=auth_data["login"], email=auth_data["email"])
         user.account_type = UserType.USER
         user.avatar_url = auth_data["avatar_url"]
+        user.html_url = auth_data["html_url"]
         db.session.add(user)
         db.session.commit()
     login_user(user, True)

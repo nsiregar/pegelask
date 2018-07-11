@@ -4,8 +4,8 @@
  <a href="{{ url_for('ask.new') }}">Ask Question</a>
   {% for question in questions %}
     <div class="row">
-      <span><a href="{{ url_for('feedback.view', id=question.id) }}">{{ question.title }}</a></span>
-      <div>
+      <strong><a href="{{ url_for('feedback.view', id=question.id) }}">{{ question.title }}</a></strong>
+      <div class="detail">
         <span>{{ question.user.username }}</span>
       </div>
     </div>

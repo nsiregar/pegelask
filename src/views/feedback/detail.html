@@ -6,8 +6,12 @@
     <hr>
     {{ question.messages }}
     <div class="detail">
-      <span>asked {{ moment(question.created_at).fromNow() }}</span>
-      <span>by {{ question.user.username }}</span>
+      <div></div>
+      <div></div>
+      <div class="user-detail">
+        <span>asked {{ moment(question.created_at).fromNow() }}</span>
+        <span>by <a href="{{ question.user.html_url }}">{{ question.user.username }}</a></span>
+      </div>
     </div>
   </div>
 
@@ -18,8 +22,12 @@
       <div class="answer">
         {{ answer.messages }}
         <div class="detail">
-          <span>answered {{ moment(answer.created_at).fromNow() }}</span>
-          <span>by {{ answer.user.username }}</span>
+          <div></div>
+          <div></div>
+          <div class="user-detail">
+            <span>answered {{ moment(answer.created_at).fromNow() }}</span>
+            <span>by <a href="{{ answer.user.html_url }}">{{ answer.user.username }}</a></span>
+          </div>
         </div>
       </div>
     {% endfor %}

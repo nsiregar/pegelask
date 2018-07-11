@@ -69,6 +69,12 @@ body {
 }
 
 .detail {
+  display: grid;
+  grid-template-columns: 33% 33% 34%;
   font-size: 0.75rem;
   color: #828282;
+}
+
+.user-detail {
+  text-align: right;
 }
