@@ -75,7 +75,10 @@ def demote(username):
 @click.argument("username")
 def get_status(username):
     user = User.query.filter_by(username=username).first()
-    print("User {} is {}".format(username, user.account_type.value))
+    try:
+        return print("User {} is {}".format(username, user.account_type.value))
+    except AttributeError:
+        return print("User not found")
 
 
 app.cli.add_command(user_command)

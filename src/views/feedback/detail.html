@@ -36,14 +36,14 @@
   <form action="" method="POST">
     {{ form.hidden_tag() }}
     <div class="form-group">
-      <div class="field">{{ form.messages.label }}</div>
-      <div class="field">{{ form.messages(cols=100, rows=6) }}</div>
+      <div class="form-comp">{{ form.messages.label }}</div>
+      <div class="form-comp">{{ form.messages(cols=100, rows=6, class="field") }}</div>
       {% for error in form.messages.errors %}
       <div class="error">{{ error }}</div>
       {% endfor %}
     </div>
 
-    <div class="field">{{ form.submit() }}</div>
+    <div class="form-comp">{{ form.submit(class="button") }}</div>
   </form>
   </div>
 {% endblock %}

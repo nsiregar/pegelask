@@ -48,11 +48,35 @@ hr {
   float: left;
 }
 
+.bg {
+  margin-top: 15px;
+}
+
 .row {
   border: 1px solid #f1f1f1;
   margin: 5px;
-  padding: 0 4px;
+  padding: 8px;
   border-radius: 5px;
+}
+
+.field {
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+}
+
+.row a {
+  color: #e74c3c;
+  text-decoration: none;
+  border-bottom: 1px solid #e74c3c;
+}
+
+.button {
+  padding: 10px;
+  background-color: #e74c3c;
+  color: #f1f1f1;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
 }
 
 .question {
@@ -82,6 +106,6 @@ hr {
   color: #828282;
 }
 
-.user-detail {
+.user-detail, .feedback-detail {
   text-align: right;
 }
