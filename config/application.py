@@ -9,6 +9,8 @@ class BaseConfig:
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = "itsasecret"
+    GITHUB_CLIENT_ID = os.environ.get("GITHUB_CLIENT_ID")
+    GITHUB_SECRET_ID = os.environ.get("GITHUB_SECRET_ID")
 
 
 class DevelopmentConfig(BaseConfig):
