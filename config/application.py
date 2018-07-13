@@ -15,18 +15,15 @@ class BaseConfig:
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
+    ENV = 'development'
     SECRET_KEY = os.environ.get("SECRET_KEY") or "development_key"
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        "DATABASE_URL"
-    ) or "sqlite:///" + os.path.join(BASE_DIR.strip("\\config"), "db/dev.db")
-    # SQLALCHEMY_DATABASE_URI = "postgresql://postgres:postgres@127.0.0.1:5432/pegelblogs"
-
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR.strip("\\config"), "db/dev.db")
 
 class TestingConfig(BaseConfig):
     DEBUG = True
+    ENV = 'testing'
     TESTING = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR, "db/test.db")
 
-
 class ProductionConfig(BaseConfig):
-    DEBUG = False
+    ENV = 'production'

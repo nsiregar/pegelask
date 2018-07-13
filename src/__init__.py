@@ -15,3 +15,4 @@ migrate = Migrate(app, db)
 
 from src.controllers import router
 from scripts.user import user_command
+from src.helpers.template_helper import get_trending_question

@@ -13,7 +13,7 @@
 
     <div class="form-group">
       <div class="form-comp">{{ form.messages.label }}</div>
-      <div class="form-comp">{{ form.messages(cols=100, rows=6, class="field") }}</div>
+      <div class="form-comp">{{ form.messages(cols=80, rows=6, class="field") }}</div>
       {% for error in form.messages.errors %}
       <div class="error">{{ error }}</div>
       {% endfor %}

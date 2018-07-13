@@ -34,3 +34,10 @@ def view(id):
         question=question,
         answers=answers,
     )
+
+@feedback.route("/feedback/solve/<int:id>", methods=["GET"])
+def solve(id):
+    question = Question.query.get(int(id))
+    question.is_solved = True
+    db.session.commit()
+    return redirect(url_for("feedback.view", id=question.id))

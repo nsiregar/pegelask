@@ -26,13 +26,13 @@ hr {
 .main {
   box-sizing: border-box;
   float: left;
-  width: 80%;
+  width: 65%;
 }
 
 .sidebar {
   box-sizing: border-box;
   float: right;
-  width: 20%;
+  width: 30%;
 }
 
 .header {
@@ -64,10 +64,9 @@ hr {
   border-radius: 5px;
 }
 
-.row a {
+.row a, .title a, .user-detail a {
   color: #e74c3c;
   text-decoration: none;
-  border-bottom: 1px solid #e74c3c;
 }
 
 .button {
@@ -80,6 +79,7 @@ hr {
 }
 
 .question {
+  margin-top: 15px;
   padding: 0 8px;
   border: 1px solid #f1f1f1;
   border-radius: 5px;
@@ -108,4 +108,24 @@ hr {
 
 .user-detail, .feedback-detail {
   text-align: right;
+}
+
+.trending {
+  display: grid;
+  grid-template-columns: 15% 85%;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.trending .title {
+  padding: 3px;
+}
+
+.trending .stat {
+  padding: 3px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #5fba7d;
+  border-radius: 3px;
 }
