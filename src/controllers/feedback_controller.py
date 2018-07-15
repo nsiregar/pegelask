@@ -35,6 +35,7 @@ def view(id):
         answers=answers,
     )
 
+
 @feedback.route("/feedback/solve/<int:id>", methods=["GET"])
 def solve(id):
     question = Question.query.get(int(id))

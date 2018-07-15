@@ -15,15 +15,21 @@ class BaseConfig:
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
-    ENV = 'development'
+    ENV = "development"
     SECRET_KEY = os.environ.get("SECRET_KEY") or "development_key"
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR.strip("\\config"), "db/dev.db")
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL"
+    ) or "sqlite:///" + os.path.join(BASE_DIR.strip("\\config"), "db/dev.db")
+
 
 class TestingConfig(BaseConfig):
     DEBUG = True
-    ENV = 'testing'
+    ENV = "testing"
     TESTING = True
+    SECRET_KEY = "testing_key"
     SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR, "db/test.db")
 
+
 class ProductionConfig(BaseConfig):
-    ENV = 'production'
+    ENV = "production"
+    SECRET_KEY = "#4$@z-9_evt%9-iyo_icb*vx@bkm@f4@k5-u0sqk3goajp4!k5"
