@@ -27,7 +27,7 @@ class TestingConfig(BaseConfig):
     ENV = "testing"
     TESTING = True
     SECRET_KEY = "testing_key"
-    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR, "db/test.db")
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(BASE_DIR.strip("\\config"), "db/test.db")
 
 
 class ProductionConfig(BaseConfig):

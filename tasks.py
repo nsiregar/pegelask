@@ -12,5 +12,5 @@ def clean(ctx):
 
 
 @task
-def tests(ctx):
-    ctx.run("nose2 -v")
+def test(ctx):
+    ctx.run("nose2 -v -C")

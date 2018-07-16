@@ -17,6 +17,7 @@ requests = "*"
 python-dotenv = "*"
 flask-testing = "*"
 "nose2" = "*"
+coverage = "*"
 
 [dev-packages]
 pylint = "*"
